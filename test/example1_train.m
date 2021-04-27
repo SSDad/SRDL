@@ -1,8 +1,8 @@
 clearvars
 
-imagesDir = 'X:\Lab\Zhen\SRDL';
+imagesDir = 'D:\Zhen\Box Sync\Taeho\SRDL';
 % url = 'http://www-i6.informatik.rwth-aachen.de/imageclef/resources/iaprtc12.tgz';
-% downloadIAPRTC12Data(url,imagesDir);
+% fun_downloadIAPRTC12Data(url,imagesDir);
 
 trainImagesDir = fullfile(imagesDir,'iaprtc12','images','02');
 exts = {'.jpg','.bmp','.png'};
