@@ -1,13 +1,11 @@
 clearvars
 
-imagesDir = 'D:\Zhen\Box Sync\Taeho\SRDL';
-imagesDir = ' C:\Users\jizhen\Box\Taeho\SRDL';
-% url = 'http://www-i6.informatik.rwth-aachen.de/imageclef/resources/iaprtc12.tgz';
-% fun_downloadIAPRTC12Data(url,imagesDir);
+path_LR = 'X:\Lab\Zhen\SRDL\Images\LR_Chun';
+path_SR = 'X:\Lab\Zhen\SRDL\Images\SR_Chun';
 
-trainImagesDir = fullfile(imagesDir,'iaprtc12','images','02');
+trainImagesDir = path_SR;
 exts = {'.jpg','.bmp','.png'};
-pristineImages = imageDatastore(trainImagesDir,'FileExtensions',exts);
+pristineImages = imageDatastore(trainImagesDir, 'FileExtensions', ;
 
 numel(pristineImages.Files);
 

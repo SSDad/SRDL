@@ -1,21 +1,18 @@
 clearvars
 
-imagesDir = 'D:\Zhen\Box Sync\Taeho\SRDL';
-imagesDir = ' C:\Users\jizhen\Box\Taeho\SRDL';
-% url = 'http://www-i6.informatik.rwth-aachen.de/imageclef/resources/iaprtc12.tgz';
-% fun_downloadIAPRTC12Data(url,imagesDir);
+path_Images = 'X:\Lab\Zhen\SRDL\Images';
+path_LR = 'X:\Lab\Zhen\SRDL\Images\LR_Chun';
+path_SR = 'X:\Lab\Zhen\SRDL\Images\SR_Chun';
 
-trainImagesDir = fullfile(imagesDir,'iaprtc12','images','02');
-exts = {'.jpg','.bmp','.png'};
-pristineImages = imageDatastore(trainImagesDir,'FileExtensions',exts);
-
+trainImagesDir = path_SR;
+pristineImages = imageDatastore(trainImagesDir, 'FileExtensions', '.mat', 'ReadFcn', @matRead);
 numel(pristineImages.Files);
 
-upsampledDirName = [trainImagesDir filesep 'upsampledImages'];
-residualDirName = [trainImagesDir filesep 'residualImages'];
+upsampledDirName = [path_Images filesep 'upsampledImages'];
+residualDirName = [path_Images filesep 'residualImages'];
 
-scaleFactors = [2 3 4];
-createVDSRTrainingSet(pristineImages,scaleFactors,upsampledDirName,residualDirName);
+scaleFactors = [2];
+createVDSRTrainingSet(pristineImages, scaleFactors, upsampledDirName, residualDirName);
 
 upsampledImages = imageDatastore(upsampledDirName,'FileExtensions','.mat','ReadFcn',@matRead);
 residualImages = imageDatastore(residualDirName,'FileExtensions','.mat','ReadFcn',@matRead);
